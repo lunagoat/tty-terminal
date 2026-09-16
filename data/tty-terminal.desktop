@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=tty-terminal
+Comment=Linux console styling with Kitty graphics support
+Exec=tty-terminal
+TryExec=tty-terminal
+Icon=tty-terminal
+Terminal=false
+Categories=System;TerminalEmulator;
+StartupWMClass=tty-terminal
+Keywords=console;shell;tty;

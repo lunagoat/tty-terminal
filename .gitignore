@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+/build/
+/dist/
+*.AppImage
+*.pkg.tar.*
+/packaging/*.AppDir/
+/packaging/runtime-*
+/packaging/aur/
+/preview.png
+/preview-kitty.png
+/assets/tty-console.ttf

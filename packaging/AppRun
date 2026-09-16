@@ -1,0 +1,4 @@
+#!/bin/sh
+app_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec "$app_dir/usr/lib/ld-linux-x86-64.so.2" --library-path "$app_dir/usr/lib" \
+    "$app_dir/usr/bin/python" -I "$app_dir/usr/share/tty-terminal/bootstrap.py" "$@"

@@ -1,0 +1,34 @@
+name: Check and package
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  arch:
+    runs-on: ubuntu-latest
+    container: archlinux:base-devel
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: pacman -Syu --noconfirm python python-fonttools kitty fontconfig desktop-file-utils git
+      - name: Check source and stage install
+        run: |
+          make check
+          make DESTDIR="$PWD/build/stage" PREFIX=/usr install
+          python build/stage/usr/share/tty-terminal/tty_terminal.py --version
+      - name: Prepare release and verify package without root
+        run: |
+          git config --global --add safe.directory "$PWD"
+          python scripts/prepare_release.py
+          cp dist/*/tty-terminal-*.tar.gz dist/*/aur/
+          useradd -m builder
+          chown -R builder:builder dist
+          runuser -u builder -- sh -c 'cd "$1"/dist/*/aur && makepkg --noconfirm' sh "$PWD"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: arch-package-and-source
+          path: |
+            dist/*/tty-terminal-*.tar.gz
+            dist/*/SHA256SUMS
+            dist/*/aur/*.pkg.tar.zst
