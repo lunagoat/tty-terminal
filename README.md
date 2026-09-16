@@ -24,7 +24,7 @@ sudo make PREFIX=/usr/local install
 config:
 ```sh
 mkdir -p ~/.config/tty-terminal
-cp /usr/share/tty-terminal/config.example.toml ~/.config/tty-terminal/config.toml
+micro ~/.config/tty-terminal/config.toml
 ```
 
 example config:
