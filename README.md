@@ -1,6 +1,6 @@
 this is all vibecoded as fuck i dont know how it works. use at your own risk 👍
 
-terminal emulator for linux systems that emulates a TTY interface
+terminal emulator for linux systems that emulates a TTY interface, has image support via kitty protocol
 
 Appimage installation:
 ```sh
