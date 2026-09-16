@@ -1,3 +1,5 @@
+this is all vibecoded as fuck i dont know how it works. use at your own risk 👍
+
 # tty-terminal
 
 A Linux console-styled frontend to [Kitty](https://sw.kovidgoyal.net/kitty/).
